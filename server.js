@@ -8,6 +8,8 @@ server.on("request", function(req, res){
 	// res.writeHead(200);
 	// res.end("Hello, World!");
 	console.log(req.url);
+	var incomingURL = url.parse(req.url);
+	console.log(incomingURL);
 });
 
 server.listen(3000);
