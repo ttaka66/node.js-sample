@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "grant": "^3.8.0",
     "gulp": "*"
   },
   "repository": {
