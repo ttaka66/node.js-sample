@@ -1,23 +1,10 @@
-// funciton createUser(){
-//
-// }
-//
-// funciton deleteUser(){
-//
-// }
-//
-// funciton postUser(){
-//
-// }
-//
-// funciton deleteUser(){
-//
-// }
+var http = require("http"); // httpはコアモジュール
+var server = http.createServer();
 
-// require()
+server.on("request", function(req, res){
+	console.log("request caught");
+	res.writeHead(200);
+	res.end("Hello, World!");
+});
 
-var user = require("./blog/user");
-var post = require("./blog/post");
-
-user.createUser();
-post.createPost();
+server.listen(3000);
