@@ -5,20 +5,38 @@ var morgan = require("morgan"); // ログを表示させるmiddleware
 
 app.use(morgan("dev")); // middlewareを使うためにはuse
 
-app.get("/hello/:name", function(req, res){
-	res.send("Hello, " + req.params.name);
+// {
+// 	title: "",
+// 	author: "",
+// 	body: ""
+// }
+
+var articles = [];
+
+// read
+app.get("articles", function(req, res){
+	res.json(articles);
 });
 
-app.get("/hello", function(req, res){
-	res.send("Hello, world!");
+// create
+app.post("articles", function(req, res){
+	articles.push(req.body);
+	res.redirect("/articles");
 });
 
-app.get("/goodbye", function(req, res){
-	res.send("Good-bye, world!");
+// read(個別)
+app.get("articles/:id", function(req, res){
+
 });
 
-app.all("*", function(req, res){
-	res.sendStatus(404);
+// update
+app.put("articles/:id", function(req, res){
+
+});
+
+// delete
+app.delete("articles/:id", function(req, res){
+	res.json(articles);
 });
 
 app.listen(3000, function(){
