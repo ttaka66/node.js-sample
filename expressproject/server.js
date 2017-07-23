@@ -1,6 +1,10 @@
 var express = require("express");
 var app = express();
 
+var morgan = require("morgan"); // ログを表示させるmiddleware
+
+app.use(morgan("dev")); // middlewareを使うためにはuse
+
 app.get("/hello/:name", function(req, res){
 	res.send("Hello, " + req.params.name);
 });
