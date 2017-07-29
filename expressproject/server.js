@@ -5,6 +5,10 @@ var morgan = require("morgan"); // ログを表示させるmiddleware
 
 app.use(morgan("dev")); // middlewareを使うためにはuse
 
+var bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
 var articles = [];
 
 var router = require("./routes/route")(express);
